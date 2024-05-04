@@ -6,13 +6,21 @@ def test_redirect(browser):
     main_page.open()
     main_page.close_popup()
 
-    factories_to_check = ['mebelkor', 'kedr', ]
+    factories_to_check = ['mebelkor', 'kedr', 'standart', 'fasady-chernozemya', 'art-studiya-12', 'fabriche_rus']
+
+    for factory_name in factories_to_check:
+        main_page.go_to_factory_page(factory_name)
+
+        assert f'/factory/select-factory/{factory_name}' in browser.current_url
+
+        main_page.go_to_main_page()
+
+    '''factory_name = 'mebelkor'  # Выберите фабрику для проверки
+
+    main_page.go_to_factory_page(factory_name)
+    
+    assert f'/factory/select-factory/{factory_name}' in browser.current_url
+    
+    main_page.go_to_main_page()''' # Здесь код для проверки лишь одной фабрики
 
 
-    assert '/factory/select-factory' in browser.current_url
-
-    '''for factory in factories:
-        factory.click()
-
-        assert '/factory/select-factory' in browser.current_url'''
-# factories = main_page.factories()
