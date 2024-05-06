@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-promotion = (By.CLASS_NAME, 'header-link')
+locator_promotion = (By.CLASS_NAME, 'header-link')
 
 
 class MainPage(BasePage):
@@ -31,10 +31,10 @@ class MainPage(BasePage):
         self.open()
 
     def go_to_promotion_page(self):
-        return self.find(promotion).click()
+        return self.find(locator_promotion).click()
 
     def scroll_to_promotion(self):
-        element = self.find(promotion)
+        element = self.find(locator_promotion)
         self.browser.execute_script("arguments[0].scrollIntoView();", element)
-        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located(promotion))
+        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located(locator_promotion))
 

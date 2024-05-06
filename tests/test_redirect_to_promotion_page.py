@@ -10,7 +10,6 @@ def test_promotions(browser):
     main_page.go_to_promotion_page()
 
     photo_element = browser.find_element(By.CLASS_NAME, 'promotion-image')
-
     assert photo_element.is_displayed()
 
 
