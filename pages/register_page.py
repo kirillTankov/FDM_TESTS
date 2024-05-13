@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 
-locator_for_youself_button = (By.CLASS_NAME, 'orange')
+locator_for_yourself_button = (By.CLASS_NAME, 'orange')
 locator_number_field = (By.ID, 'phone')
 locator_register_button = (By.XPATH, '//a[@class="btn g-btn g-btn--orange" and text()="Зарегистрироваться"]')
 locator_code_field = (By.XPATH, '/html/body/div[5]/div/div/div/div/div/div[1]/input')
@@ -18,7 +18,7 @@ class RegPage(BasePage):
         self.browser.get('https://allfdm.ru/personal/vue/registration/')
 
     def button_for_yourself(self):
-        return self.find(locator_for_youself_button)
+        return self.find(locator_for_yourself_button)
 
     def number_field(self):
         return self.find(locator_number_field)

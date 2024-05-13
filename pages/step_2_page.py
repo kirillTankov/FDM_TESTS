@@ -6,7 +6,7 @@ locator_product_card_button = (By.XPATH, '//h3[text()="Квадро"]')
 locator_popup_continue_button = (By.CLASS_NAME, 'btn-primary')
 
 
-class StepTwoKedrPage(BasePage):
+class StepTwoKedrPvhPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)
 

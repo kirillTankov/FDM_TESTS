@@ -6,7 +6,7 @@ locator_product_card_button = (By.XPATH, '//img[@class="card-img-top" and @alt="
 locator_popup_continue_button = (By.XPATH, '//button[@class="btn-primary" and @type="submit"]')
 
 
-class StepOneKedrPage(BasePage):
+class StepOneKedrPvhPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)
 
