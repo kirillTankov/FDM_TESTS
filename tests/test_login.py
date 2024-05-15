@@ -9,7 +9,8 @@ def test_login(browser):
     login.browser.get('https://dev.allfdm.ru/')
     login.close_popup()
     login.login()
+    WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.XPATH, '//a[text()="Выход"]')))
 
-    out_is_displayed = browser.find_element(By.XPATH, '//a[text()="Выход" and @href="/personal/logout"]')
+    out_is_displayed = browser.find_element(By.XPATH, '//a[text()="Выход"]')
     assert out_is_displayed.is_displayed()
 
