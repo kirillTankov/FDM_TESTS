@@ -12,11 +12,11 @@ def test_register(browser):
     base_page.close_popup()
 
     reg_page.button_for_yourself().click()
-    reg_page.number_field().send_keys('9842008025')
+    reg_page.number_field().send_keys('9275088527')
     reg_page.register_button().click()
 
     WebDriverWait(browser, 10).until(EC.element_to_be_clickable(locator_confirm_button)) # ждём кликабельную кнопку "Подтвердить"
-    reg_page.code_field().send_keys('1059')
+    reg_page.code_field().send_keys('1111')
     reg_page.confirm_button().click()
 
     WebDriverWait(browser, 10).until(EC.element_to_be_clickable(locator_ok_button)) # ждём кликабельную кнопку "Ок"

@@ -15,7 +15,7 @@ class RegPage(BasePage):
         super().__init__(browser)
 
     def open(self):
-        self.browser.get('https://allfdm.ru/personal/vue/registration/')
+        self.browser.get('https://dev.allfdm.ru/personal/vue/registration/')
 
     def button_for_yourself(self):
         return self.find(locator_for_yourself_button)
