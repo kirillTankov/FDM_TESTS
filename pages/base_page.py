@@ -25,7 +25,7 @@ class BasePage:
 
         # Находим поле номера телефона и указываем значение
         WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, '//button[text()="Войти"]')))
-        phone_number = '9999999929'
+        phone_number = '9275088522'
         number_field = self.browser.find_element(By.ID, 'phoneInput')
 
         for digit in phone_number:
@@ -39,7 +39,7 @@ class BasePage:
 
         # Используем универсальный код и кликаем на кнопку "Войти
         WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, 'change-link')))
-        code_number = '1111'
+        code_number = '1112'
         code_field = self.browser.find_element(By.ID, 'codeInput')
 
         for code_send in code_number:
@@ -47,5 +47,5 @@ class BasePage:
             time.sleep(0.2)
 
         WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, 'change-link')))
-        login_popup_button_2 = self.browser.find_element(By.XPATH, '//button[not(@onclick)]')
+        login_popup_button_2 = self.browser.find_element(By.XPATH, '//*[@id="auth-modal"]/div/div/div/form[1]/div[2]/button')
         login_popup_button_2.click()
