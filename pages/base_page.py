@@ -25,7 +25,7 @@ class BasePage:
 
         # Находим поле номера телефона и указываем значение
         WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, '//button[text()="Войти"]')))
-        phone_number = '9275088522'
+        phone_number = '9999999999'
         number_field = self.browser.find_element(By.ID, 'phoneInput')
 
         for digit in phone_number:
