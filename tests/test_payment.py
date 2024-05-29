@@ -4,6 +4,9 @@ from pages.catalog_page import FacadePvhKedrPage
 from pages.step_1_page import StepOneKedrFacadePvhPage
 from pages.step_2_page import StepTwoKedrFacadePvhPage
 from pages.step_3_page import StepThreeKedrFacadePvhPage
+from pages.order_checkout_page import OrderCheckoutPage
+from pages.LK_basket_page import LkBasketPage
+from pages.blank_order_page import BlankOrderPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -45,4 +48,24 @@ def test_payment(browser):
     step_three_kedr_facade_pvh_page.height_field_second().send_keys('2400')
     step_three_kedr_facade_pvh_page.width_field_second().send_keys('1000')
     step_three_kedr_facade_pvh_page.calculate_order_button().click()
-    time.sleep(5)
+
+    blank_order_page = BlankOrderPage(browser)
+    WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH, '//div[@class="title-text" and text()="Фабрика / Тип фасада"]')))
+    blank_order_page.add_in_basket_button().click()
+    # WebDriverWait(browser, 15).until(EC.element_to_be_clickable((By.CLASS_NAME, 'cross')))
+    # blank_order_page.close_popup_button().click()
+    WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, 'mb-4')))
+    blank_order_page.go_to_basket_button().click()
+
+    lk_basket_page = LkBasketPage(browser)
+    WebDriverWait(browser, 15).until(EC.element_to_be_clickable((By.CLASS_NAME, 'cart-payment')))
+    lk_basket_page.go_to_checkout_button()
+
+    order_checkout_page = OrderCheckoutPage(browser)
+    # WebDriverWait(browser, 15).until(EC.visibility_of_element_located((By.CLASS_NAME, 'btn-success')))
+    time.sleep(7)
+    order_checkout_page.checkbox_city_button()
+    order_checkout_page.go_to_pay_button()
+
+    pay_card_button = WebDriverWait(browser, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/div[2]/div[4]/div/div/div[2]/div/button')))
+    assert pay_card_button.is_displayed()
