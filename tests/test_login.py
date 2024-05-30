@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def test_login(browser):
     login = BasePage(browser)
-    login.browser.get('https://dev.allfdm.ru/')
+    login.browser.get('https://allfdm.ru/')
     login.close_popup()
     login.login()
 

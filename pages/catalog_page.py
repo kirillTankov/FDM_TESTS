@@ -15,7 +15,7 @@ class CatalogPage(BasePage):
         super().__init__(browser)
 
     def open(self):
-        self.browser.get('https://dev.allfdm.ru/main/factory/select-factory/')
+        self.browser.get('https://allfdm.ru/main/factory/select-factory/')
 
     def factory_is_kedr_button(self):
         element = self.find(locator_kedr_button)

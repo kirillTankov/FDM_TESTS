@@ -39,7 +39,7 @@ class BasePage:
 
         # Используем универсальный код и кликаем на кнопку "Войти
         WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, 'change-link')))
-        code_number = '1111'
+        code_number = '0277'
         code_field = self.browser.find_element(By.ID, 'codeInput')
 
         for code_send in code_number:

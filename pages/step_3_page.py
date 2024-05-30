@@ -15,7 +15,8 @@ class StepThreeKedrFacadePvhPage(BasePage):
         super().__init__(browser)
 
     def calculate_order_button(self):
-        return self.find(locator_calculate_order_button)
+        element = self.find(locator_calculate_order_button)
+        self.browser.execute_script("arguments[0].click();", element)
 
     def height_field_first(self):
         return self.find(locator_height_field_first)

@@ -18,4 +18,5 @@ class BlankOrderPage(BasePage):
         return self.find(locator_close_popup_button)
 
     def go_to_basket_button(self):
-        return self.find(locator_go_to_basket_button)
+        element = self.find(locator_go_to_basket_button)
+        self.browser.execute_script("arguments[0].click();", element)
