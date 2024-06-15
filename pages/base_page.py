@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 import time
+import allure
 
 
 class BasePage:
@@ -15,8 +16,9 @@ class BasePage:
         return self.browser.find_elements(*args)
 
     def close_popup(self):
-        city_choice = WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.ID, 'closeSelectCityModal')))
-        city_choice.click()
+        with allure.step('Закрываем попап с выбором города'):
+            city_choice = WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.ID, 'closeSelectCityModal')))
+            city_choice.click()
 
     def login(self):
         # Находим кнопку "Вход" в хедере страницы и кликаем по ней
