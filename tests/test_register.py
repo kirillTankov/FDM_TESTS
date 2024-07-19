@@ -16,7 +16,7 @@ def test_register(browser):
     reg_page.register_button().click()
 
     WebDriverWait(browser, 10).until(EC.element_to_be_clickable(locator_confirm_button)) # ждём кликабельную кнопку "Подтвердить"
-    reg_page.code_field().send_keys('1111')
+    reg_page.code_field().send_keys('1112')
     reg_page.confirm_button().click()
 
     WebDriverWait(browser, 10).until(EC.element_to_be_clickable(locator_ok_button)) # ждём кликабельную кнопку "Ок"
